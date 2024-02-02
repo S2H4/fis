@@ -1,3 +1,15 @@
+CREATE TABLE persistent_logins
+(
+    username  VARCHAR(64) NOT NULL,
+    series    VARCHAR(64),
+    token     VARCHAR(64) NOT NULL,
+    last_used TIMESTAMP   NOT NULL,
+
+    CONSTRAINT pk_persistent_logins PRIMARY KEY (series)
+);
+
+COMMENT ON TABLE persistent_logins IS 'Spring RememberMe';
+
 INSERT INTO fis_account
        (name, username, email, mobile_phone, password, enabled, created_on, created_by, approved, mobile_verified, expired, locked, x, credentials_expired)
 VALUES
